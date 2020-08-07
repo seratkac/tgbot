@@ -1,11 +1,9 @@
-from log import log
-from common_modules import requests
+from common_modules import requests, log
 
 class Telegramm:
 	"""docstring for Telegramm"""
-	def __init__(self):
-		self.YTurl = ""
-		self.tgkey = '1350709675:AAEceWlKkdiNwouvx0ZVWHaEKFlSY-kEOHc'
+	def __init__(self, tgkey):
+		self.tgkey = tgkey
 		self.url = f"https://api.telegram.org/bot{self.tgkey}/"
 
 

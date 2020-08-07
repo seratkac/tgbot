@@ -1,5 +1,4 @@
-from log import log
-from common_modules import sleep, last_d
+from common_modules import sleep, log
 
 def tg(new_offset):
 	rules = [
@@ -31,7 +30,7 @@ def tg(new_offset):
 				file.seek(0)
 				file.writelines(str(new_offset))
 			log.info("\033[96moffset has been wrote into the file\033[0m")
-			# break
+			break
 
 
 def fun(tt, tgbot, rules, new_offset):
@@ -51,10 +50,8 @@ def fun(tt, tgbot, rules, new_offset):
 				tgbot.sendMsg("725166072","system: offset has been wrote into the file")
 				return "stoped"
 
-			if '/getdata' in msg and '1111' in msg:
-				last_check = last_d()
+			if '/getofsset' in msg and '1111' in msg:
 				tgbot.sendMsg("725166072", new_offset)
-				tgbot.sendMsg("725166072", last_check)
 				continue
 
 			def delsnd():
@@ -101,6 +98,6 @@ def fun(tt, tgbot, rules, new_offset):
 			pass
 
 def threadTelegramm():
-	with open("offset.txt", "r") as f:
+	with open("txt/offset.txt", "r") as f:
 		new_offset = f.readline()
 	tg(new_offset)

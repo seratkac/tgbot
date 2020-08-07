@@ -1,9 +1,7 @@
-#импортирование модулей
-from log import log
+#импорт модулей
 from common_modules import datetime, sleep, log
 
 import TGRMthread as trT
-import YTthread
 import threading
 
 
@@ -18,16 +16,10 @@ def main():
 		now = datetime.now().isoformat()
 		f.write(str(datetime.now()))
 	x1 = threading.Thread(target = trT.threadTelegramm, daemon = True)
-	x2 = threading.Thread(target = YTthread.YouTubeThread, daemon = True)
-	# x3 = threading.Thread(target = InOut, daemon = True)
-
+	
 	x1.setName("TG")
-	x2.setName("YT")
-	# x3.setName("IO")
 
 	x1.start()
-	x2.start()
-	# x3.start()
 
 	x1.join()
 

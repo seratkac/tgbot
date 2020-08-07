@@ -1,7 +1,5 @@
 ''''''#нужно для сравнения и записи времени с предыдущим значением
-
-from log import log
-from common_modules import datetime
+from common_modules import datetime, log
 
 def last_d():
 
